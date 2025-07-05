@@ -1,0 +1,79 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br><br>
+    <h3>Edit your Listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+      
+      <div class="mb-3">
+        <table for="titile" class="form-label"></table>
+      <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
+      <div class="valid-feedback">It's look good</div>
+
+    </div>
+
+<div>
+  <table for="description" class="form-label"></table>
+  <textarea name="listing[description]" class="form-control" required>
+    <%= listing.description %></textarea
+    >
+    <div class="invalid-feedback">Write something it</div>
+
+</div><br>
+    
+  Past Image
+
+<div class="mb-3">
+<img src="<%= originalImageUrl %>" alt="listing image">
+</div>  
+
+<div class="mb-3">
+  <table for="image" class="form-label">Upload New Image</table>
+  <input
+   name="listing[image.url]" 
+   value="<%=listing.image.url%>"
+    type="file" class="form-control"
+       />
+</div>  
+
+<div class="row">
+<div class="mb-3 col-md-4">
+  <table for="price" class="form-label"></table>
+  <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required/>
+  <div class="invalid-feedback">Please enter valid Price</div>
+
+
+</div>  
+<div class="mb-3 col-md-8">
+  <table for="country" class="form-label"></table>
+  <input
+  name="listing[country]"
+  value="<%= listing.country %>"
+  type="text"
+  class="form-control"
+  required
+/>
+<div class="invalid-feedback">Please enter the country</div>
+
+</div>    
+</div>
+<div>
+  <table for="location" class="form-label"></table>
+  <input
+  name="listing[location]"
+  value="<%= listing.location %>"
+  type="text"
+  class="form-control"
+  required
+/>
+<div class="invalid-feedback">Please enter the location</div>
+
+</div>
+     
+      <button class="btn btn-dark mt-3 edit-btn">Edit</button>
+    </form>
+  </div>
+  </div>
+
