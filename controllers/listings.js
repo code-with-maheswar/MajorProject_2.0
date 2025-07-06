@@ -1,10 +1,10 @@
 const Listing = require("../models/listing.js");
 const ExpressError=require("../utils/ExpressError.js");
-const fetch = require('node-fetch');
-
+// const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(mod => mod.default(...args));
 module.exports.index = async(req,res)=>{
     const allListings=await Listing.find();
-    res.render("./listings/index.ejs",{allListings})
+    res.render("./listings/index.ejs",{allListings});
 }
 
 
@@ -27,7 +27,7 @@ module.exports.showListings = async(req,res)=>{
       req.flash("error","Listing  doesn't  Exist");
       res.redirect("/listings");
     }
-    res.render("./listings/show.ejs",{listing,currUser: req.user, MAP_TOKEN: process.env.MAP_TOKEN });
+    res.render("./listings/show.ejs",{listing, MAP_TOKEN: process.env.MAP_TOKEN });
 };    
 
 

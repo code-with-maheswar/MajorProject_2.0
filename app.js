@@ -12,7 +12,7 @@ const ejsMate=require("ejs-mate");
 const ExpressError=require("./utils/ExpressError.js");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
-const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(mod => mod.default(...args));
 const listingsRouter=require("./routes/listings.js");
 const reviewsRouter=require("./routes/review.js");
 const userRouter=require("./routes/user.js");
@@ -83,7 +83,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use((req,res,next)=>{
-  res.locals.success=req.flash("success");
+  res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
 res.locals.currUser=req.user;
   next(); 
