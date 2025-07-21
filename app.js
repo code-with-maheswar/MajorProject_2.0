@@ -107,8 +107,8 @@ res.status(status).render("error.ejs",{message});
 // res.status(status).send(message);
 })
 
-app.listen('8080',()=>{
-console.log("port is listing to 8080");
-
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
 
