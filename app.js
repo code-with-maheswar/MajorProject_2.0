@@ -89,6 +89,13 @@ res.locals.currUser=req.user;
   next(); 
 })
 
+// const Listing = require("./models/listing.js"); 
+
+app.get("/", async (req, res) => {
+  const allListings = await Listing.find({});
+  res.render("listings/index", { allListings, success: req.flash("success") });
+});
+
 
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
