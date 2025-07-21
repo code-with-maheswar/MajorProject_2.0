@@ -20,6 +20,7 @@ const flash=require("connect-flash");
 const passport=require("passport");
 const LocalStratagy=require("passport-local");
 const User = require("./models/user.js");
+ const Listing = require("./models/listing.js"); 
 
 
 app.set("view engine", "ejs");
@@ -89,7 +90,6 @@ res.locals.currUser=req.user;
   next(); 
 })
 
-// const Listing = require("./models/listing.js"); 
 
 app.get("/", async (req, res) => {
   const allListings = await Listing.find({});
