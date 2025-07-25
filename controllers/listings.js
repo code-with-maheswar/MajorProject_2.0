@@ -37,6 +37,36 @@ module.exports.newListing =  async (req, res,next) => {
 
 
  const address = `${req.body.listing.location}, ${req.body.listing.country}`;
+  
+
+//  const geoRes = await fetch(
+//   `https://api.maptiler.com/geocoding/${encodeURIComponent(address)}.json?key=${process.env.MAP_TOKEN}`
+// );
+
+// const contentType = geoRes.headers.get("content-type");
+// let geoData;
+// if (contentType && contentType.includes("application/json")) {
+//   geoData = await geoRes.json();
+// } else {
+//   const text = await geoRes.text();
+//   console.error("MapTiler API error:", text);
+//   throw new ExpressError("MapTiler API error: " + text, 403);
+// }
+ 
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   const geoRes = await fetch(
     `https://api.maptiler.com/geocoding/${encodeURIComponent(address)}.json?key=${process.env.MAP_TOKEN}`
   );
@@ -47,6 +77,12 @@ module.exports.newListing =  async (req, res,next) => {
   if (geoData.features && geoData.features.length > 0) {
     coordinates = geoData.features[0].center;
   }
+
+
+
+
+
+
   const newListing = new Listing(req.body.listing)
    newListing.owner = req.user._id;
    newListing.image = {url,filename}
