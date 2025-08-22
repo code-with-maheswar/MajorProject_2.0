@@ -34,6 +34,239 @@
     align-items: center;
     width: 18rem;
   }
+
+
+ 
+/* General responsive settings */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Navbar styles */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #fe424d;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-link {
+  color: #333;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #fe424d;
+}
+
+.search-btn {
+  background: #fe424d;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  margin-left: 0.5rem;
+}
+
+.search-btn:hover {
+  background: #d63a3a;
+}
+
+.search-inp {
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Responsive for phones */
+@media (max-width: 600px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 0.75rem 0;
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .search-inp {
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .search-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
+/* Optional: Hide navbar links on small screens until toggled */
+@media (max-width: 600px) {
+  .navbar-collapse {
+    width: 100%;
+  }
+}
+
+
+/* Filters section */
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter {
+  margin-top: 1rem;
+  opacity: 0.7;
+  text-align: center;
+  cursor: pointer;
+  flex: 0 0 90px;
+  transition: opacity 0.2s;
+}
+
+.filter:hover {
+  opacity: 1;
+}
+
+.filter p {
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.tax-toggle {
+  border: 2px solid #333;
+  border-radius: 1rem;
+  height: 2.5rem;
+  padding-left: 0.5rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  width: 18rem;
+  min-width: 200px;
+}
+
+/* Card grid */
+.listing-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.listing-card {
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.listing-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  #filters {
+    gap: 0.5rem;
+  }
+  .tax-toggle {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .filter {
+    flex: 1 1 100%;
+    margin-right: 0;
+    margin-top: 0.5rem;
+  }
+  .tax-toggle {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .listing-card {
+    margin-bottom: 1rem;
+  }
+  .card-img-top {
+    height: 12rem;
+  }
+  .card-body {
+    padding: 0.7rem;
+  }
+  .card-text {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+
 </style>
     <!-- <h1>All Listings</h1> -->
     <!-- <form method="GET" action="/listings/new">
